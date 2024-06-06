@@ -1,7 +1,13 @@
 using CabideSolidario.Endpoints.Doadores;
+using CabideSolidario.Endpoints.Instituicoes;
+using CabideSolidario.Endpoints.Security;
 using CabideSolidario.Endpoints.Solicitacao;
 using CabideSolidario.Infra.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +30,45 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
+//Configuração de autorização para o login
+builder.Services.AddAuthorization(options =>           //adiciona serviço de autorização para saber quem está navegando pelo sistema
+{
+    options.FallbackPolicy = new AuthorizationPolicyBuilder()       //aplica a proteção obrigatoria para todas as rotas
+        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+        .RequireAuthenticatedUser()
+        .Build();
+    //Adicionando políticas para usuarios específicos    
+    options.AddPolicy("DoadorPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("UsuarioCode","1"));
+    options.AddPolicy("InstituicaoPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("UsuarioCode", "2"));
+
+});
+
+//Autenticação
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateActor = true,
+        ValidateAudience = true,
+        ValidateIssuer = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ClockSkew = TimeSpan.Zero,          //bonus de tempo para utilizar o token após sua expiração
+        ValidIssuer = builder.Configuration["JwtBaererTokenSettings:Issuer"],
+        ValidAudience = builder.Configuration["JwtBaererTokenSettings:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtBaererTokenSettings:SecretKey"]))
+    };
+});
+
 var app = builder.Build();
+app.UseAuthentication();
+app.UseAuthorization();
 
 //if (app.Environment.IsDevelopment())
 //{
@@ -34,10 +78,24 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
-app.MapMethods(SolicitacaoDoacaoGet.Template, SolicitacaoDoacaoGet.Methods, SolicitacaoDoacaoGet.Handler);
+
 app.MapMethods(InstituicaoPost.Template, InstituicaoPost.Methods, InstituicaoPost.Handler);
+
+
 app.MapMethods(DoadorPost.Template, DoadorPost.Methods, DoadorPost.Handler);
+app.MapMethods(DoadorGetAll.Template, DoadorGetAll.Methods, DoadorGetAll.Handler);
+app.MapMethods(DoadorPut.Template, DoadorPut.Methods, DoadorPut.Handler);
+
+
+app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handler);
+
+
+
+
+
+//app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
+//app.MapMethods(SolicitacaoDoacaoGet.Template, SolicitacaoDoacaoGet.Methods, SolicitacaoDoacaoGet.Handler);
+
 //app.MapMethods(DoadorGetAll.Template, DoadorGetAll.Methods, DoadorGetAll.Handler);
 
 app.Run();

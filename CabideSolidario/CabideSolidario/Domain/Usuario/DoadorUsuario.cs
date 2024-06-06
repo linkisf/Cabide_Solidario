@@ -4,4 +4,9 @@ public class DoadorUsuario : Usuario
 {
     public string CPF { get; set; }
     
+
+    public void EditInfo()
+    {
+
+    }
 }

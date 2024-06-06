@@ -10,10 +10,6 @@ public class Usuario
     public string Telefone { get; set; }
     public string Password { get; set; }
     public EnderecoModel? Endereco { get; set; }
-
-    public Usuario() 
-    { 
-        
-    }
+    
 
 }

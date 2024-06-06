@@ -7,7 +7,12 @@ C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\CabideSolidario.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\CabideSolidario.pdb
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Azure.Core.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Azure.Identity.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Dapper.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Humanizer.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -21,6 +26,8 @@ C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extension
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
@@ -85,9 +92,3 @@ C:\Repo\src\CabideSolidario\CabideSolidario\obj\Debug\net6.0\refint\CabideSolida
 C:\Repo\src\CabideSolidario\CabideSolidario\obj\Debug\net6.0\CabideSolidario.pdb
 C:\Repo\src\CabideSolidario\CabideSolidario\obj\Debug\net6.0\CabideSolidario.genruntimeconfig.cache
 C:\Repo\src\CabideSolidario\CabideSolidario\obj\Debug\net6.0\ref\CabideSolidario.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Repo\src\CabideSolidario\CabideSolidario\bin\Debug\net6.0\Dapper.dll
