@@ -39,7 +39,7 @@ builder.Services.AddAuthorization(options =>           //adiciona serviço de aut
         .Build();
     //Adicionando políticas para usuarios específicos    
     options.AddPolicy("DoadorPolicy", p =>
-        p.RequireAuthenticatedUser().RequireClaim("UsuarioCode","1"));
+        p.RequireAuthenticatedUser().RequireClaim("UsuarioCode", "1"));
     options.AddPolicy("InstituicaoPolicy", p =>
         p.RequireAuthenticatedUser().RequireClaim("UsuarioCode", "2"));
 
@@ -84,7 +84,16 @@ app.MapMethods(InstituicaoPost.Template, InstituicaoPost.Methods, InstituicaoPos
 
 app.MapMethods(DoadorPost.Template, DoadorPost.Methods, DoadorPost.Handler);
 app.MapMethods(DoadorGetAll.Template, DoadorGetAll.Methods, DoadorGetAll.Handler);
+app.MapMethods(DoadorGet.Template, DoadorGet.Methods, DoadorGet.Handler);
 app.MapMethods(DoadorPut.Template, DoadorPut.Methods, DoadorPut.Handler);
+
+app.MapMethods(InstituicaoPost.Template, InstituicaoPost.Methods, InstituicaoPost.Handler);
+app.MapMethods(InstituicaoGet.Template, InstituicaoGet.Methods, InstituicaoGet.Handler);
+app.MapMethods(InstituicaoGetAll.Template, InstituicaoGetAll.Methods, InstituicaoGetAll.Handler);
+
+
+
+
 
 
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handler);

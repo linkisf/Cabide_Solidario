@@ -21,10 +21,10 @@ public class TokenPost
         var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
 
         if (user == null)
-            Results.BadRequest();
+            return Results.BadRequest();
 
         if (!userManager.CheckPasswordAsync(user, loginRequest.Password).Result)
-            Results.BadRequest();
+            return Results.BadRequest();
 
         var claims = userManager.GetClaimsAsync(user).Result;
         var subject = new ClaimsIdentity(new Claim[]
