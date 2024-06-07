@@ -1,5 +1,6 @@
 ﻿using CabideSolidario.Domain.Usuario;
 using Dapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
 using System.Security.Claims;
 
@@ -11,6 +12,7 @@ public class InstituicaoGetAll
     public static string[] Methods => new string[] { HttpMethod.Get.ToString() };
     public static Delegate Handler => Action;
 
+    [Authorize(Policy = "InstituicaoPolicy")]
     public static IResult Action(int page, int rows, IConfiguration configuration)
     {
         var db = new SqlConnection(configuration["ConnectionStrings:CabideSolidario"]);

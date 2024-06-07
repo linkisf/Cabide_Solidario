@@ -1,5 +1,6 @@
 ﻿using CabideSolidario.Domain.Usuario;
 using CabideSolidario.Infra.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -11,6 +12,7 @@ public class InstituicaoPost
     public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
     public static Delegate Handler => Action;
 
+    [AllowAnonymous]
     public static IResult Action(InstituicaoUsuario instituicaoRequest, UserManager<IdentityUser> userManager, ApplicationDbContext context)
     {
         //Registra novo usuario
