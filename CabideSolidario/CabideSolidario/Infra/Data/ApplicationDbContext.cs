@@ -32,6 +32,12 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
             .Property(p => p.Bairro).IsRequired();
         builder.Entity<EnderecoModel>()
             .Property(p => p.Rua).IsRequired();
+
+
+
+        builder.Entity<SolicitacaoDoacao>()
+            .ToTable("CAD_SOLICITACAO_DOACAO");
+
     }
 
 

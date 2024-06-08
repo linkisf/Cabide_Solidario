@@ -13,18 +13,19 @@ public class DoadorPost
     public static Delegate Handler => Action;
 
     [AllowAnonymous]
-    public static IResult Action(DoadorUsuario doadorRequest, UserManager<IdentityUser> userManager, ApplicationDbContext context)
+    public async static Task<IResult> Action(DoadorUsuario doadorRequest, UserManager<IdentityUser> userManager, ApplicationDbContext context)
     {
         //Registra novo usuario
         var user = new IdentityUser
         {
-            UserName = doadorRequest.Nome,
+            UserName = doadorRequest.Email,
             Email = doadorRequest.Email,
             PhoneNumber = doadorRequest.Telefone
         };
-        var result = userManager.CreateAsync(user, doadorRequest.Password).Result;
 
-        if(!result.Succeeded) 
+        var result = await userManager.CreateAsync(user, doadorRequest.Password);
+        
+        if (!result.Succeeded) 
             return Results.BadRequest(result.Errors.First());
 
         //Salva Endereco
@@ -33,17 +34,18 @@ public class DoadorPost
             var endereco = doadorRequest.Endereco;
             endereco.IdUsuario = Guid.Parse(user.Id);
 
-            context.Endereco.AddAsync(endereco);
-            context.SaveChangesAsync();
+            await context.Endereco.AddAsync(endereco);
+            await context.SaveChangesAsync();
         }
 
         var userClaims = new List<Claim>
         {
+            new Claim("Nome", doadorRequest.Nome),
             new Claim("CPF", doadorRequest.CPF),
             new Claim("UsuarioCode", "1")
         };
 
-        var claimResult = userManager.AddClaimsAsync(user, userClaims).Result;
+        var claimResult = await userManager.AddClaimsAsync(user, userClaims);
 
         if(!claimResult.Succeeded)
             return Results.BadRequest(claimResult.Errors.First());

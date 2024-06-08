@@ -27,6 +27,10 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Password.RequireLowercase = false;
     options.Password.RequiredLength = 3;
 
+    options.User.RequireUniqueEmail = true;
+
+    //options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
@@ -79,17 +83,23 @@ app.UseAuthorization();
 app.UseHttpsRedirection();
 
 
-app.MapMethods(InstituicaoPost.Template, InstituicaoPost.Methods, InstituicaoPost.Handler);
-
-
+//ENDPOINTS: DOADORES
 app.MapMethods(DoadorPost.Template, DoadorPost.Methods, DoadorPost.Handler);
 app.MapMethods(DoadorGetAll.Template, DoadorGetAll.Methods, DoadorGetAll.Handler);
 app.MapMethods(DoadorGet.Template, DoadorGet.Methods, DoadorGet.Handler);
 app.MapMethods(DoadorPut.Template, DoadorPut.Methods, DoadorPut.Handler);
 
+//ENDPOINTS: INSTITUICOES
 app.MapMethods(InstituicaoPost.Template, InstituicaoPost.Methods, InstituicaoPost.Handler);
 app.MapMethods(InstituicaoGet.Template, InstituicaoGet.Methods, InstituicaoGet.Handler);
 app.MapMethods(InstituicaoGetAll.Template, InstituicaoGetAll.Methods, InstituicaoGetAll.Handler);
+app.MapMethods(InstituicaoPut.Template, InstituicaoPut.Methods, InstituicaoPut.Handler);
+
+//ENDPOINTS: ENDERECO
+
+
+//ENDPOINTS: SOLICITACAO DOACAO
+app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
 
 
 

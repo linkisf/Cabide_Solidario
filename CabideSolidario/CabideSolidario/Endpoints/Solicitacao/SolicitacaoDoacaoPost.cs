@@ -1,5 +1,9 @@
 ﻿using CabideSolidario.Infra.Data;
 using CabideSolidario.Domain.SolicitacaoDoacao;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using CabideSolidario.Endpoints.Security;
 
 namespace CabideSolidario.Endpoints.Solicitacao;
 
@@ -9,17 +13,11 @@ public class SolicitacaoDoacaoPost
     public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
     public static Delegate Handler => Action;
 
-    public static IResult Action(SolicitacaoDoacaoRequest solicitacaoDoacaoRequest, ApplicationDbContext context)
+    [Authorize(Policy = "DoadorPolicy")]
+    public static IResult Action(SolicitacaoDoacao solicitacao, HttpContext http, UserManager<IdentityUser> userManager, ApplicationDbContext context)
     {
-        var solicitacao = new SolicitacaoDoacao
-        {
-            IdDoador = solicitacaoDoacaoRequest.IdDoador,
-            Quantidade = solicitacaoDoacaoRequest.Quantidade,
-            Condicao = solicitacaoDoacaoRequest.Condicao,
-            TipoPeca = solicitacaoDoacaoRequest.TipoPeca,
-            DisponivelParaEntrega = solicitacaoDoacaoRequest.DisponivelParaEntrega,
-            Status = solicitacaoDoacaoRequest.Status
-        };
+        //var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
+        //var userId = user.Id;
 
         context.SolicitacaoDoacoes.Add(solicitacao);
         context.SaveChanges();
