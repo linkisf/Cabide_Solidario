@@ -1,5 +1,5 @@
 ﻿using CabideSolidario.Infra.Data;
-using CabideSolidario.Domain.SolicitacaoDoacao;
+using CabideSolidario.Domain.SolicitacaoDoacoes;
 
 namespace CabideSolidario.Endpoints.Solicitacao;
 

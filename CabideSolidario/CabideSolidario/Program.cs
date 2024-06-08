@@ -1,5 +1,6 @@
 using CabideSolidario.Endpoints.Doadores;
 using CabideSolidario.Endpoints.Instituicoes;
+using CabideSolidario.Endpoints.Inventario;
 using CabideSolidario.Endpoints.Security;
 using CabideSolidario.Endpoints.Solicitacao;
 using CabideSolidario.Infra.Data;
@@ -100,6 +101,8 @@ app.MapMethods(InstituicaoPut.Template, InstituicaoPut.Methods, InstituicaoPut.H
 
 //ENDPOINTS: SOLICITACAO DOACAO
 app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
+app.MapMethods(InventarioPost.Template, InventarioPost.Methods, InventarioPost.Handler);
+app.MapMethods(InventarioExecutarSolicitacao.Template, InventarioExecutarSolicitacao.Methods, InventarioExecutarSolicitacao.Handler);
 
 
 

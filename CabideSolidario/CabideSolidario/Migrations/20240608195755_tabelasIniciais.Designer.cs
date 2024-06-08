@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CabideSolidario.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240604205815_CorrecaoEndereco")]
-    partial class CorrecaoEndereco
+    [Migration("20240608195755_tabelasIniciais")]
+    partial class tabelasIniciais
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,9 @@ namespace CabideSolidario.Migrations
                     b.Property<string>("Complemento")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("IdUsuario")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Numero")
                         .IsRequired()

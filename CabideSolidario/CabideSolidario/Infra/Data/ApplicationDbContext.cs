@@ -1,5 +1,6 @@
 ﻿using CabideSolidario.Domain.Endereco;
-using CabideSolidario.Domain.SolicitacaoDoacao;
+using CabideSolidario.Domain.Inventario;
+using CabideSolidario.Domain.SolicitacaoDoacoes;
 using CabideSolidario.Domain.Usuario;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -11,6 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 {
 
     public DbSet<SolicitacaoDoacao> SolicitacaoDoacoes { get; set; }
+    public DbSet<InventarioInstituicao> InventarioInstituicao { get; set; }
     public DbSet<EnderecoModel> Endereco{ get; set; }
 
 
@@ -37,6 +39,9 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
         builder.Entity<SolicitacaoDoacao>()
             .ToTable("CAD_SOLICITACAO_DOACAO");
+
+        builder.Entity<InventarioInstituicao>()
+            .ToTable("CAD_INVENTARIO_INSTITUICAO");
 
     }
 

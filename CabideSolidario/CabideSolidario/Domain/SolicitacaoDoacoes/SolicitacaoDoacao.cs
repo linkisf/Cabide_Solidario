@@ -1,4 +1,4 @@
-﻿namespace CabideSolidario.Domain.SolicitacaoDoacao;
+﻿namespace CabideSolidario.Domain.SolicitacaoDoacoes;
 
 public class SolicitacaoDoacao
 {

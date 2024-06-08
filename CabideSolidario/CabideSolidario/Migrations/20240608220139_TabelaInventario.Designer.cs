@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CabideSolidario.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240604210444_CampoUsuarioEndereco")]
-    partial class CampoUsuarioEndereco
+    [Migration("20240608220139_TabelaInventario")]
+    partial class TabelaInventario
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,27 @@ namespace CabideSolidario.Migrations
                     b.ToTable("CAD_ENDERECO", (string)null);
                 });
 
-            modelBuilder.Entity("CabideSolidario.Domain.SolicitacaoDoacao.SolicitacaoDoacao", b =>
+            modelBuilder.Entity("CabideSolidario.Domain.Inventario.InventarioInstituicao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Executada")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("IdInstituicao")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdSolicitacao")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CAD_INVENTARIO_INSTITUICAO", (string)null);
+                });
+
+            modelBuilder.Entity("CabideSolidario.Domain.SolicitacaoDoacoes.SolicitacaoDoacao", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,13 +121,17 @@ namespace CabideSolidario.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Tamanhos")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TipoPeca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("SolicitacaoDoacoes");
+                    b.ToTable("CAD_SOLICITACAO_DOACAO", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

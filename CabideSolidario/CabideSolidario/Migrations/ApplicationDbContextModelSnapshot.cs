@@ -63,7 +63,27 @@ namespace CabideSolidario.Migrations
                     b.ToTable("CAD_ENDERECO", (string)null);
                 });
 
-            modelBuilder.Entity("CabideSolidario.Domain.SolicitacaoDoacao.SolicitacaoDoacao", b =>
+            modelBuilder.Entity("CabideSolidario.Domain.Inventario.InventarioInstituicao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Executada")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("IdInstituicao")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdSolicitacao")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CAD_INVENTARIO_INSTITUICAO", (string)null);
+                });
+
+            modelBuilder.Entity("CabideSolidario.Domain.SolicitacaoDoacoes.SolicitacaoDoacao", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

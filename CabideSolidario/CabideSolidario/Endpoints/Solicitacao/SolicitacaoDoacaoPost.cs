@@ -1,5 +1,5 @@
 ﻿using CabideSolidario.Infra.Data;
-using CabideSolidario.Domain.SolicitacaoDoacao;
+using CabideSolidario.Domain.SolicitacaoDoacoes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
