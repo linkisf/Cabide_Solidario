@@ -101,6 +101,11 @@ app.MapMethods(InstituicaoPut.Template, InstituicaoPut.Methods, InstituicaoPut.H
 
 //ENDPOINTS: SOLICITACAO DOACAO
 app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
+app.MapMethods(SolicitacaoDoacaoGet.Template, SolicitacaoDoacaoGet.Methods, SolicitacaoDoacaoGet.Handler);
+app.MapMethods(SolicitacaoDoacaoPutAlterarStatus.Template, SolicitacaoDoacaoPutAlterarStatus.Methods, SolicitacaoDoacaoPutAlterarStatus.Handler);
+
+
+//ENDPOINTS: INVENTARIO
 app.MapMethods(InventarioPost.Template, InventarioPost.Methods, InventarioPost.Handler);
 app.MapMethods(InventarioExecutarSolicitacao.Template, InventarioExecutarSolicitacao.Methods, InventarioExecutarSolicitacao.Handler);
 
@@ -108,7 +113,7 @@ app.MapMethods(InventarioExecutarSolicitacao.Template, InventarioExecutarSolicit
 
 
 
-
+//ENDPOINTS: TOKEN
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handler);
 
 
