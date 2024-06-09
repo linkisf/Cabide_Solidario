@@ -13,6 +13,15 @@ public class SolicitacaoDoacao
     public Guid? Instituicao { get; set; }
     public DateTime DataCriacao { get; set; }
     public DateTime DataAtualizacao { get; set; }
-    public Guid EditedBy { get; set; }    
+    public Guid EditedBy { get; set; }
+
+
+    public SolicitacaoDoacao()
+    {
+        DataCriacao = DateTime.Now;
+        DataAtualizacao = DateTime.Now;        
+    }
+
+
 
 }
