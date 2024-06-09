@@ -102,6 +102,7 @@ app.MapMethods(InstituicaoPut.Template, InstituicaoPut.Methods, InstituicaoPut.H
 //ENDPOINTS: SOLICITACAO DOACAO
 app.MapMethods(SolicitacaoDoacaoPost.Template, SolicitacaoDoacaoPost.Methods, SolicitacaoDoacaoPost.Handler);
 app.MapMethods(SolicitacaoDoacaoGet.Template, SolicitacaoDoacaoGet.Methods, SolicitacaoDoacaoGet.Handler);
+app.MapMethods(SolicitacaoDoacaoGetAll.Template, SolicitacaoDoacaoGetAll.Methods, SolicitacaoDoacaoGetAll.Handler);
 app.MapMethods(SolicitacaoDoacaoPutAlterarStatus.Template, SolicitacaoDoacaoPutAlterarStatus.Methods, SolicitacaoDoacaoPutAlterarStatus.Handler);
 
 

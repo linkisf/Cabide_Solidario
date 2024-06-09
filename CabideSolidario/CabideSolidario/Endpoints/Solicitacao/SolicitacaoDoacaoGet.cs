@@ -14,11 +14,11 @@ public class SolicitacaoDoacaoGet
     [Authorize(Policy = "DoadorPolicy")]
     public static IResult Action([FromRoute] Guid id, ApplicationDbContext context)
     {
-        var solicitacoes = context.SolicitacaoDoacoes.Where(s => s.Id == id).ToList();
+        var solicitacao = context.SolicitacaoDoacoes.Where(s => s.Id == id).ToList();
 
-        if (solicitacoes == null)
+        if (solicitacao == null)
             return Results.BadRequest();
 
-        return Results.Ok(solicitacoes);
+        return Results.Ok(solicitacao);
     }
 }
