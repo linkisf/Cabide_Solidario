@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Acesso - Cabide Solidário</title>  
+   <link rel="stylesheet"href="style_perfildeusuario.css"
+
+
+</head>
+<body>
+    <header>
+
+        <img id="logo" src="../imagens/Cabide Solidário.png " alt="Logo" >
+        <button onclick="navigate('fazerdoação.html')">Fazer Doações</button>
+        <button onclick="navigate('solicitacao.html')">Solicitar Doações</button>
+        <button onclick="navigate('relatorios.html')">Gerenciar Doações</button>
+        <img id="imgman" src="../imagens/pessoa.png" alt="pessoa">
+        <div class="perfil"> <h4>@João_Silva</h4>
+
+    </header>
+
+    <main>
+        <div class="profile-name">  <h1>Perfil de Usuário</h1>
+         <td><a class="edit-button" href="editarCliente.html?id=${cliente.id}">Editar</a></td>
+        </div>
+
+        <div class="profile-info">
+
+            <div class="profile-item">
+                <h3>Nome: João Silva</h3>
+               
+            </div>
+
+            <div class="profile-item">
+                <h3>Email: exemplo@gmail.com</h3>
+              
+            </div>
+
+        </div>
+        <div class="profile-info">
+            <div class="profile-item">
+                <h3>Telefone: (00) 12345-6789</h3>
+             
+            </div>
+
+            <div class="profile-item">
+                <h3>Endereço: Rua Exemplo, 123</h3>
+              
+            </div>
+            
+        </div>
+        <td><a class="delete-account-button" href="excluirCliente.html?id=${cliente.id}">Excluir Conta</a></td>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cabide Solidário</p>
+            <p>Contato: contato@cabidesolidario.com</p>
+            <p>
+                <a href="Login e cadastro/login.html">Cadastrar-se</a> |
+                <a href="pedidocompra.html">Fazer Doações</a> |
+                <a href="CRUD_Estoque/gerenciarEstoque.html">Solicitar Doações</a> |
+                <a href="relatorios.html">Gerenciar Doações</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        function navigate(page) {
+            open(page);
+        }
+    </script>
+
+</body>
+</html>

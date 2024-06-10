@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Doação</title>
+   <link rel="stylesheet"href="style_fazerdoação.css"
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="imagens/Cabide Solidário.png" alt="Logo">
+        <button onclick="navigate('Login e cadastro/login.html')">Cadastrar-se</button>
+        <button onclick="navigate('fazerdoação.html')">Fazer Doações</button>
+        <button onclick="navigate('solicitacao.html')">Solicitar Doações</button>
+        <button onclick="navigate('relatorios.html')">Gerenciar Doações</button>
+        <div id="profile" onclick="navigate(' CRUD_Cliente/perfildousuario.html')">Perfil de Usuário</a> 
+
+
+
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Realize aqui  <br> a sua doação</h1>
+            <p>Doe e faça a diferença na vida de alguém</p>
+            
+
+        </div>
+    </div>
+
+    <div class="gr">
+        <h1>Fazer Doação</h1>
+    </div>
+
+<form id="doacaoForm" onsubmit="processarDoacao(event)">
+       
+        <label for="produto">Produto a Doar:</label>
+        <select id="produto" required>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="infantil">Infantil</option>
+            
+        </select>
+
+        <label for="tipoProduto">Tipo do Produto:</label>
+        <select id="tipoProduto" required>
+            <option value="casaco">Casaco</option>
+            <option value="calça">Calça</option>
+            <option value="bermuda">Bermuda</option>
+            <option value="camiseta">Camiseta</option>
+            <option value="sapato">Sapato</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+
+        <label for="tamanho">Tamanho:</label>
+        <input type="text" id="tamanho" required>
+
+        <label for="condicao">Condição:</label>
+        <select id="condicao" required>
+            <option value="novo">Novo</option>
+            <option value="usado">Usado</option>
+        </select>
+
+        <label for="endereco">Endereço para Busca:</label>
+        <input type="text" id="endereco" required>
+
+         <label for="dataBusca">Data para Busca:</label>
+        <input type="date" id="dataBusca" name="dataBusca" required>
+
+        <button id="profile"onclick="processarDoacao()">Enviar Doação</button>
+    </form>
+
+           
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cabide Solidario</p>
+            <p>Contato: contato@cabidesolidario.com</p>
+            <p>
+                <a href="Login e cadastro/login.html">Cadastrar-se</a> |
+                <a href="pedidocompra.html">Fazer Doações</a> |
+                <a href="CRUD_Estoque/gerenciarEstoque.html">Solicitar Doações</a> |
+                <a href="relatorios.html">Gerenciar Doações</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function navigate(page) {
+            open(page);
+        }
+        function processarDoacao() {
+            var nome = document.getElementById('nome').value;
+            var produto = document.getElementById('produto').value;
+            var tamanho = document.getElementById('tamanho').value;
+            var condicao = document.getElementById('condicao').value;
+            var endereco = document.getElementById('endereco').value;
+            var imagem = document.getElementById('imagem').value;
+            var destino = document.getElementById('destino').value;
+
+            // Aqui você pode processar os dados da doação, como enviar para o servidor ou exibir em um alerta
+            console.log("Nome: ", nome);
+            console.log("Produto: ", produto);
+            console.log("Tamanho: ", tamanho);
+            console.log("Condição: ", condicao);
+            console.log("Endereço: ", endereco);
+            console.log("Imagem: ", imagem);
+            console.log("Destino: ", destino);}
+       
+
+    </script>
+</body>
+</html>

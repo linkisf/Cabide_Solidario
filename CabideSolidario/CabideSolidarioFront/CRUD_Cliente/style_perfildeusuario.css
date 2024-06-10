@@ -1,0 +1,143 @@
+   
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 30px 20px; /* Adicionado espaçamento interno */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #logo {
+            max-width: 250px; /* Ajuste o tamanho da imagem conforme necessário */
+            margin: 10px;
+            margin-left: 40px;
+            margin-right: auto; /* Isso garante que a imagem do logo fique à esquerda */
+            cursor: pointer; /* Altera o cursor ao passar sobre o card */
+        }
+        #imgman{
+            max-width: 80px; /* Ajuste o tamanho da imagem conforme necessário */
+            margin: 10px;
+            margin-right: -260; /* Isso garante que a imagem do logo fique à esquerda */
+            cursor: pointer; /* Altera o cursor ao passar sobre o card */
+
+        }
+
+        main {
+            max-width: 10000px;
+            margin: 20px auto;
+            background-color: rgb(253, 253, 253);
+            padding: 20px;
+        }
+
+
+        .perfil{ 
+            margin-right: 70px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+           
+
+        }
+
+        .profile-name {
+            margin-left: 10px;
+            margin-top: -10px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+    
+        }
+        .profile-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            margin-left: 10px;
+    
+        }
+
+        .profile-item {
+            flex: 1;
+            margin: 20 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+        }
+
+        .edit-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 32px;
+            margin-left: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 13.5px;
+            position: absolute;
+           right: 950px; /* Posicionamento ajustado para a esquerda */ 
+
+        }
+        button {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 32px;
+            font-size: 13.5px; 
+            
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .delete-account-button {
+            background-color: #ec0b0b;
+            color: white;
+            border: none;
+            margin-left: 610px;
+            padding:  13px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13.5px;
+           
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+        }
+
+        .footer-content a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }

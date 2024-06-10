@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabide Solidario</title>
+   <link rel="stylesheet"href="style_index.css"
+
+</head>
+<body>
+    <header>
+        <img id="logo" src="imagens/Cabide Solidário.png" alt="Logo">
+        <button onclick="navigate('Login e cadastro/login.html')">Cadastrar-se</button>
+        <button onclick="navigate('fazerdoação.html')">Fazer Doações</button>
+        <button onclick="navigate('solicitacao.html')">Solicitar Doações</button>
+        <button onclick="navigate('relatorios.html')">Gerenciar Doações</button>
+        <div id="profile" onclick="navigate(' CRUD_Cliente/perfildousuario.html')">Perfil de Usuário</a> 
+
+
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Bem-vindo ao <br> Cabide Solidário</h1>
+            <p>Doe e faça a diferença na vida de alguém</p>
+            <button onclick="navigate('fazerdoação.html')">Fazer Doações</button>
+
+        </div>
+    </div>
+
+    <div id="filter">
+        <label for="clothing-type">Veja as roupas  doação:</label>
+        <select id="clothing-type" onchange="filterCards()">
+            <option value="all">Todos</option>
+            <option value="estoque">Em Estoque</option>
+            <option value="doadas">Já Doadas</option>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="infantil">Infantil</option>
+        
+           
+        </select>
+    </div>
+    
+    <main id="content" class="card-container">
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (1).jpg" alt="Imagem 1">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: G-42 </h5>
+            
+            <div class="status-circle" style="background-color: rgb(89, 0, 255);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (2).jpg" alt="Imagem 2">
+           <h3>Casaco de frio</h3>
+            <h5>Tamanho: GG-46 </h5>
+            
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (3).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: P-38 </h5>
+
+            <div class="status-circle" style="background-color: red;"></div>
+        </div>
+        
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (4).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: PP-16 </h5>
+
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (8).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: G-42 </h5>
+
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (7).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: GG-48 </h5>
+
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (6).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: PP-18 </h5>
+
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="card" onclick="navigate('gerenciar_doacoes.html')">
+            <img src="imagens/download (5).jpg" alt="Imagem 2">
+            <h3>Casaco de frio</h3>
+            <h5>Tamanho: M-36 </h5>
+
+            <div class="status-circle" style="background-color: rgb(41, 236, 41);"></div>
+        </div>
+
+        <div class="banner2">
+            <div class="banner-content2">
+                <h1>Indique quem <br>precisa aqui!</h1>
+                <p>Nos ajude a chegar a mais lugares</p>
+                
+ <!-- Formulário -->
+ <form id="institution-form">
+    <div class="form-group">
+        <label for="institution-name">Nome da Instituição:</label>
+        <input type="text" id="institution-name" name="institution-name" required>
+    </div>
+    <div class="form-group">
+        <label for="location">E-mail:</label>
+        <input type="text" id="e-mail" name="e-mail" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Breve Descrição:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+    
+            </div>
+
+        <!-- Adicione mais cards conforme necessário -->
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cabide Solidario</p>
+            <p>Contato: contato@cabidesolidario.com</p>
+            <p>
+                <a href="Login e cadastro/login.html">Cadastrar-se</a> |
+                <a href="pedidocompra.html">Fazer Doações</a> |
+                <a href="CRUD_Estoque/gerenciarEstoque.html">Solicitar Doações</a> |
+                <a href="relatorios.html">Gerenciar Doações</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function navigate(page) {
+            open(page);
+        }
+
+        function filterCards() {
+            var selectBox = document.getElementById("clothing-type");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            var cards = document.getElementsByClassName("card");
+
+            for (var i = 0; i < cards.length; i++) {
+                var card = cards[i];
+                var cardType = card.getAttribute("data-type");
+
+                if (selectedValue === "all" || selectedValue === cardType) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+       
+
+    </script>
+</body>
+</html>

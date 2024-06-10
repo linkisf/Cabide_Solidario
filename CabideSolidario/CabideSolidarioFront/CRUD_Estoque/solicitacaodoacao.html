@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Doação</title>
+    <link rel="stylesheet" href="style_solicitacao_doacao.css">
+</head>
+<body>
+
+    <header>
+        <img id="logo" src="imagens/Cabide Solidário.png" alt="Logo">
+        <button onclick="navigate('Login e cadastro/login.html')">Cadastrar-se</button>
+        <button onclick="navigate('fazerdoacao.html')">Fazer Doações</button>
+        <button onclick="navigate('CRUD_Estoque/solicitacaodoacao.html')">Solicitar Doações</button>
+        <button onclick="navigate('relatorios.html')">Gerenciar Doações</button>
+        <div id="profile" onclick="navigate('CRUD_Cliente/perfildousuario.html')">Perfil de Usuário</div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Solicite aqui <br> uma doação</h1>
+            <p>Preencha o formulário para solicitar uma doação</p>
+        </div>
+    </div>
+
+    <div class="gr">
+        <h1>Solicitação de Doação</h1>
+    </div>
+
+    <form>
+        <label for="nome">Nome do Solicitante:</label>
+        <input type="text" id="nome" required>
+
+        <label for="necessidade">Necessidade:</label>
+        <select id="necessidade" required>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="infantil">Infantil</option>
+        </select>
+
+        <label for="produto">Produto Necessário:</label>
+        <select id="produto" required>
+            <option value="casaco">Casaco</option>
+            <option value="calça">Calça</option>
+            <option value="bermuda">Bermuda</option>
+            <option value="camiseta">Camiseta</option>
+            <option value="sapato">Sapato</option>
+            <option value="todos">Todos</option>
+        </select>
+
+        <label for="tamanho">Tamanho:</label>
+        <input type="text" id="tamanho" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" required>
+
+        <label for="endereco">Endereço para Entrega:</label>
+        <input type="text" id="endereco" required>
+
+        <label for="telefone">Telefone para Contato:</label>
+        <input type="text" id="telefone" required>
+
+        <button type="button" onclick="processarSolicitacao()">Enviar Solicitação</button>
+    </form>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cabide Solidário</p>
+            <p>Contato: contato@cabidesolidario.com</p>
+            <p>
+                <a href="Login e cadastro/login.html">Cadastrar-se</a> |
+                <a href="fazerdoacao.html">Fazer Doações</a> |
+                <a href="CRUD_Estoque/gerenciarEstoque.html">Solicitar Doações</a> |
+                <a href="relatorios.html">Gerenciar Doações</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function navigate(page) {
+            window.location.href = page;
+        }
+
+        function processarSolicitacao() {
+            var nome = document.getElementById('nome').value;
+            var necessidade = document.getElementById('necessidade').value;
+            var produto = document.getElementById('produto').value;
+            var tamanho = document.getElementById('tamanho').value;
+            var quantidade = document.getElementById('quantidade').value;
+            var endereco = document.getElementById('endereco').value;
+            var telefone = document.getElementById('telefone').value;
+
+            console.log("Nome: ", nome);
+            console.log("Necessidade: ", necessidade);
+            console.log("Produto: ", produto);
+            console.log("Tamanho: ", tamanho);
+            console.log("Quantidade: ", quantidade);
+            console.log("Endereço: ", endereco);
+            console.log("Telefone: ", telefone);
+
+            // Exemplo de envio para o servidor
+            // var data = {
+            //     nome: nome,
+            //     necessidade: necessidade,
+            //     produto: produto,
+            //     tamanho: tamanho,
+            //     quantidade: quantidade,
+            //     endereco: endereco,
+            //     telefone: telefone
+            // };
+
+            // fetch('url_do_servidor', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // }).then(response => {
+            //     if (response.ok) {
+            //         alert("Solicitação enviada com sucesso!");
+            //     } else {
+            //         alert("Erro ao enviar solicitação. Por favor, tente novamente mais tarde.");
+            //     }
+            // }).catch(error => {
+            //     console.error('Erro ao enviar solicitação:', error);
+            // });
+        }
+    </script>
+</body>
+</html>

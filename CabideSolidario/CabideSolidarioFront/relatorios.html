@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+    <link rel="stylesheet"href="style_relatorio.css">
+
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .gr {
+            color: #000000;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="imagens/Cabide Solidário.png" alt="Logo">
+        <a href="Login e cadastro/login.html"><button>Cadastrar-se</button></a>
+        <a href="fazerdoação.html"><button>Fazer Doações</button></a>
+        <a href="CRUD_Estoque/gerenciarEstoque.html"><button>Solicitar Doações</button></a>
+        <a href="relatorios.html"><button>Gerenciar Doações</button></a>
+        <a href="CRUD_Cliente/perfildousuario.html"><div id="profile">Perfil de Usuário</div></a>
+    </header>
+
+    <div class="gr">
+        <h1>Gerenciamento</h1>
+    </div>
+
+   <!-- Conteúdo dos filtros -->
+   <div>
+    <label for="filtro">Filtrar por:</label>
+    <select id="filtro" onchange="aplicarFiltro()">
+       <option value="todos">Todos</option>
+            <option value="maisDoados">Produtos Mais Doados</option>
+            <option value="baixoEstoque">Produto com Baixo Estoque</option>
+            <option value="solicitados">Solicitados</option>
+            <option value="enviados">Enviados</option>
+        </select>
+</div>
+
+<!-- Tabela para os relatórios -->
+<div class="relatorios-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Solicitante</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Enviados</th>
+                <th>Entrega</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaRelatorios">
+            <!-- Dados inseridos dinamicamente aqui -->
+        </tbody>
+    </table>
+</div>
+
+
+
+<script>
+
+        getProdutosMaisVendidos(listProdutosMaisVendidos); // Geração de relatório de produtos mais vendido.
+
+        getCMC(cmc); //Geração de relatório de consumo médio do cliente.
+
+        getProdBaixoEst(prodBaixoEst); // Geração de relatório de produto com baixo estoque.
+
+        getProdCliente(prodCliente); // Geração de relatório de produto por cliente.
+
+
+
+        // Geração de relatório de produtos mais vendido.
+        function listProdutosMaisVendidos(produtos) {
+            var produtosList = document.getElementById('produtosMaisVendidos');
+            produtosList.innerHTML = '';
+
+            produtos.forEach(function (produto) {
+                produtosList.innerHTML += `
+                        <tr>
+                            <td>${produto.nomeProduto}</td>
+                            <td>${produto.sumqtd}</td>
+                        </tr>`;
+            });
+        }
+
+        function getProdutosMaisVendidos(callback) {
+            fetch('http://localhost:3000/prodmaisvendidos')
+                .then(response => response.json())
+                .then(data => callback(data))
+                .catch(error => {
+                    console.error('Erro ao obter produto:', error);
+                });
+        }
+
+        //Geração de relatório de consumo médio do cliente.
+        function cmc(consumos) {
+            var consumoM = document.getElementById('consumoMedio');
+            let valor = consumos[0].cmc;
+            consumoM.innerHTML = '';
+
+            consumoM.innerHTML += `
+                <tr>
+                    <td>R$ ${valor.toFixed(2)}</td>
+                </tr>`;
+
+        }
+
+        function getCMC(callback) {
+            fetch('http://localhost:3000/cmc')
+                .then(response => response.json())
+                .then(data => callback(data))
+                .catch(error => {
+                    console.error('Erro ao obter CMC:', error);
+                });
+        }
+
+        // Geração de relatório de produto com baixo estoque.
+        function prodBaixoEst(prodsEstoque) {
+            var listProdBaixoEst = document.getElementById('prodBaixoEst');
+            listProdBaixoEst.innerHTML = '';
+
+            prodsEstoque.forEach(function (prodEstoque) {
+                listProdBaixoEst.innerHTML += `
+                        <tr>
+                            <td>${prodEstoque.nome}</td>
+                            <td>${prodEstoque.qtdEstoque}</td>
+                        </tr>`;
+            });
+        }
+
+        function getProdBaixoEst(callback) {
+            fetch('http://localhost:3000/prodBaixoEst')
+                .then(response => response.json())
+                .then(data => callback(data))
+                .catch(error => {
+                    console.error('Erro ao obter dados:', error);
+                });
+        }
+
+        // Geração de relatório de produto por cliente. 
+        function prodCliente(produtosCliente) {
+            var listProdCliente = document.getElementById('prodPorCliente');
+            listProdCliente.innerHTML = '';
+
+            produtosCliente.forEach(function (produtoCliente) {
+                listProdCliente.innerHTML += `
+                        <tr>
+                            <td>${produtoCliente.nomeProduto}</td>
+                            <td>${produtoCliente.countCliente}</td>
+                        </tr>`;
+            });
+        }
+
+        function getProdCliente(callback) {
+            fetch('http://localhost:3000/prodCliente')
+                .then(response => response.json())
+                .then(data => callback(data))
+                .catch(error => {
+                    console.error('Erro ao obter dados:', error);
+                });
+        }
+
+        function enviarFeedback(index) {
+            // Captura o valor da caixa de seleção (se foi marcada ou não)
+            var entregaRealizada = document.getElementById('entrega_' + index).checked;
+        
+            // Captura o feedback do cliente
+            var feedback = document.getElementById('feedback_' + index).value;
+        
+            // Aqui você pode enviar o feedback para o backend ou fazer qualquer outra ação necessária
+            console.log("Entrega realizada:", entregaRealizada);
+            console.log("Feedback:", feedback);
+        }
+        
+
+        function enviarFeedback(index) {
+            // Captura o valor da caixa de seleção (se foi marcada ou não)
+            var entregaRealizada = document.getElementById('entrega_' + index).checked;
+        
+            // Captura o feedback do cliente
+            var feedback = document.getElementById('feedback_' + index).value;
+        
+            // Aqui você pode enviar o feedback para o backend ou fazer qualquer outra ação necessária
+            console.log("Entrega realizada:", entregaRealizada);
+            console.log("Feedback:", feedback);
+        }
+        
+
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cabide Solidario</p>
+            <p>Contato: contato@cabidesolidario.com</p>
+            <p>
+                <a href="Login e cadastro/login.html">Cadastrar-se</a> |
+                <a href="pedidocompra.html">Fazer Doações</a> |
+                <a href="CRUD_Estoque/gerenciarEstoque.html">Solicitar Doações</a> |
+                <a href="relatorios.html">Gerenciar Doações</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

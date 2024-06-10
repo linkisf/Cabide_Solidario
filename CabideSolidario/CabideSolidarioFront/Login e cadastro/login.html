@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            
+            <h2>Login</h2>
+            <form action="javascript:void(0)" method="post" onsubmit="return false;">
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button onclick="login('index.html')">Entrar</button>
+
+            </form>
+
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+    
+    <script src="script.js">
+        function login(page) {
+            open(page);
+        }
+
+    </script>
+</body>
+</html>
