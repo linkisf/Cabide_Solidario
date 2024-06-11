@@ -1,0 +1,8 @@
+* Dapper:
+	Micro ORM utilizado para mapear as tabelas do benco em objetos atravez de consultas SQL. Utilizado somente na captura dos usuarios, pois é uma entidade escalável e assim é possível ter ganho de performance.
+	
+* Microsoft.AspNetCore.Authentication.JwtBearer:
+	Biblioteca utilizada para fazer a autorização e autenticação do usuario e criação de token de validação do login, através do email e senha.
+	
+* Microsoft.AspNetCore.Identity.EntityFrameworkCore, Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.Design, Microsoft.EntityFrameworkCore.SqlServer:
+	Conjunto de bibliotecas que compões o Entity Framework, ORM utilizado para mapear as tabelas do banco de dados e fazer a implantações utilizando a funcionalidade Migrations.
